@@ -5,30 +5,63 @@
     a. Add more values to a list
     b. Return a value at a specific index
 """
+import random
 
 def mainProgram():
     myList = []
+    unique_list = []
     try:
         print("Hello, there! Lt's work with lists!")
         print("Choose from the following options. Type a number below!")
-        choice = input("""1. Ad to  a list,
+        choice = input("""1. Add to  a list,
 2. Return the value at an index position!
 3. Random Searchs
 4. Add a bunch of numbers
-5.Quit Program""")
+5. Linear Search
+6. Print List
+7. Sort List
+8. Recursive Binary Search
+9. Iterative Binary Search
+9.Quit Program""")
 
 
 
         if choice == "1":
             addToList()
+            
         elif choice == "2":
             indexValues()
+            
         elif choice == "3":
             randomSearch()
+            
         elif choice == "4":
-            addABunch
+            addABunch()
+            
+        elif choice == "5":
+            linearSearch()
+            
+        elif choice == "6":
+            printList()
+            
+        elif choice == "7":
+            sortList(myList)
+
+        elif choice == "8":
+            recursiveBinarySearch(unique_list, 0, len(unique_list)-1, searchItem, int(searchItem))
+
+        
+        elif choice == "9":
+            searchItem = input("What are you looking for?  ")
+            result = iterativeBinarySearch(unique_list, int(searchItem))
+            if result != -1:
+                print("Your number is at index{}".format(result))
+
+        
         else:
             break
+    except:
+        print("You caught an error!")
 
     #TO ADD: 1. A way to loop the action, 2. A way to quit, 3. Think of repitition.
 
@@ -43,8 +76,8 @@ def addABunch():
     numToAdd = input("How many integers would you like to add?")
     numRange = input("And how high would you like these numbers to go?   ")
     for x in range(0, int(numToAdd)):
-        myList.append(random.randint(0, int(numRange))
-    print("Your list is now complete")
+        myList.append(random.randint(0, int(numRange)))
+    print("Your list is now complete!")
 
 
 def indexValues():
@@ -52,11 +85,33 @@ def indexValues():
     indexPos = input("What index position would you like to see?")
     print(myList[int(indexPos)])
 
+def sortList(myList):
+    for x in unique_list:
+        if x not in unique_list:
+            unique_list.append(x)
+        unique_list.sort()
+        showMe = input("Wanna see your  new list? Y/N")
+        if showMe.lower() == y:
+            print(unique_list)
+        
+def printLists():
+    if len(unique_list) == 0:
+        print(myList)
+    else:
+        whichOne = input("Which list? Sorted or unsorted?")
+        if whichOne.lower() == "sorted":
+            print(unique_list)
+            
+    
+
+
+    
 
 
 def randomSearch():
-    pint("RaNdOm sEarCH?")
+    print("RaNdOm sEarCH?")
     print(myList[random.randrandint(0, len(myList)-1)])
+
 
 def linearSearch():
     print("We're gonna check out each item one at a time in your list! This sucks.")
@@ -64,11 +119,46 @@ def linearSearch():
     for x in range(len(myList)):
         if myList[x] == int(searchItem):
             pint("Your item is at index position {}".format(x))
+            
+def recursiveBinarySearch(unique_list, low, high, x):
+    if high >= low:
+        mid = (high + low) // 2
 
-    
+        if unique_list[mid] == x:
+            print("You did dang found it at index position {}".format(mid))
+
+        elif unique_list[mid] > x:
+            return recursiveBinarySearch)unique_list, low, mid -1, x)
+
+        else:
+            return recursiveBinarySearch(unisue_list, mid + 1, high, x)
+
+    else:
+        print("Your number isn't here!")
+        
+
+
+def iterativeBinarySearch(unique_list, x):
+    low = 0
+    high = len(unique_list)-1
+    mid = 0
+
+    while low <= high:
+        mid = (high + low) // 2
+
+        if unique_list[mid] < x:
+            low = mid + 1
+        elif unique_list[]mid > x:
+            high = mid - 1
+
+        else:
+            return mid
+    return -1
 
 
 if __name__ == "__main__":
     mainProgram()
+
+
 
 
