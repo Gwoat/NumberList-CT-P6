@@ -6,11 +6,11 @@
     b. Return a value at a specific index
 """
 import random
-
+myList = []
+unique_list = []
 def mainProgram():
-    myList = []
-    unique_list = []
-    try:
+    
+    while True:
         print("Hello, there! Lt's work with lists!")
         print("Choose from the following options. Type a number below!")
         choice = input("""1. Add to  a list,
@@ -22,8 +22,7 @@ def mainProgram():
 7. Sort List
 8. Recursive Binary Search
 9. Iterative Binary Search
-9.Quit Program""")
-
+10.Quit Program""")
 
 
         if choice == "1":
@@ -39,29 +38,32 @@ def mainProgram():
             addABunch()
             
         elif choice == "5":
-            linearSearch()
+            linearSearch
             
         elif choice == "6":
-            printList()
+            printLists()
             
         elif choice == "7":
             sortList(myList)
 
         elif choice == "8":
-            recursiveBinarySearch(unique_list, 0, len(unique_list)-1, searchItem, int(searchItem))
+            searchItem = input("What number are you looking for?")
+            recursiveBinarySearch(unique_list, 0, len(unique_list)-1, int(searchItem))
 
         
         elif choice == "9":
             searchItem = input("What are you looking for?  ")
             result = iterativeBinarySearch(unique_list, int(searchItem))
             if result != -1:
-                print("Your number is at index{}".format(result))
+                print("Your number is at index position {}.".format(result))
+            else:
+                print("Your number is not here.")
 
         
         else:
             break
-    except:
-        print("You caught an error!")
+        
+    
 
     #TO ADD: 1. A way to loop the action, 2. A way to quit, 3. Think of repitition.
 
@@ -86,13 +88,13 @@ def indexValues():
     print(myList[int(indexPos)])
 
 def sortList(myList):
-    for x in unique_list:
+    for x in myList:
         if x not in unique_list:
             unique_list.append(x)
-        unique_list.sort()
-        showMe = input("Wanna see your  new list? Y/N")
-        if showMe.lower() == y:
-            print(unique_list)
+    unique_list.sort()
+    showMe = input("Wanna see your  new list? Y/N")
+    if showMe.lower() == "y":
+        print(unique_list)
         
 def printLists():
     if len(unique_list) == 0:
@@ -128,10 +130,10 @@ def recursiveBinarySearch(unique_list, low, high, x):
             print("You did dang found it at index position {}".format(mid))
 
         elif unique_list[mid] > x:
-            return recursiveBinarySearch)unique_list, low, mid -1, x)
+            return recursiveBinarySearch(unique_list, low, mid -1, x)
 
         else:
-            return recursiveBinarySearch(unisue_list, mid + 1, high, x)
+            return recursiveBinarySearch(unisue_list, mid +1, high, x)
 
     else:
         print("Your number isn't here!")
@@ -148,7 +150,7 @@ def iterativeBinarySearch(unique_list, x):
 
         if unique_list[mid] < x:
             low = mid + 1
-        elif unique_list[]mid > x:
+        elif unique_list[mid] > x:
             high = mid - 1
 
         else:
@@ -158,7 +160,4 @@ def iterativeBinarySearch(unique_list, x):
 
 if __name__ == "__main__":
     mainProgram()
-
-
-
 
